@@ -16,7 +16,7 @@ client.on('message', msg => {
 
     if (command === 'saludo') {
         if (!args.length) {
-            msg.channel.send(`Fijate que te falta escribir algo mas, ${msg.author}!`);  // si no hay un comando devuelve eso
+            msg.channel.send(`Fijate que te falta escribir algo mas, ${msg.author}, etiqueta a quien saludas porfa!`);  // si no hay un comando devuelve eso
             msg.react('💩')
         }
         else {
