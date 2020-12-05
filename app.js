@@ -22,7 +22,6 @@ client.on('message', msg => {
         else {
             msg.channel.send(`Al fin llego ${msg.mentions.users.first()}`);
         }
-        msg.channel.send(`El argumento ${args[0]} no es valido`)
     }
 });
 
