@@ -8,7 +8,6 @@ client.once('ready', () => console.log(`Ya cargue, soy ${client.user.tag}!`));
 // necesario siempre poner un signo al principio porq sino da un bucle de respuestas
 // con un signo unicamente corre la respuesta una vez
 
-
 const comando = (msg, cmd, args) => {
 
     if (!args.length) {
@@ -18,23 +17,22 @@ const comando = (msg, cmd, args) => {
     }
     switch (cmd) {
         case 'saludo':
-            if (args !== msg.mentions.users.first()) {
-                msg.channel.send('No etiquetaste a nadie')
+            if (msg.mentions.users.first()) {
+                msg.channel.send(`Al fin llego el genio de ${msg.mentions.users.first()}`);
                 break;
             } else {
-                msg.channel.send(`Al fin llego el genio de ${msg.mentions.users.first()}`);
+                msg.channel.send('No etiquetaste a nadie')
                 break;
             }
         case 'bot':
             if (args[0] === 'hoy') {
-                msg.channel.send(`Segun mis calculo suponiendo un comportamiento de la distribucion de probabilidad Normal hay una probabilidad del ${Math.random().toFixed(2) * 100}%`)
+                msg.channel.send(`Segun mis calculo la probabilidad es de ${Math.random().toFixed(2) * 100}%`)
                 break;
             }
         default:
             break;
     }
 }
-
 
 client.on('message', msg => {
     if (!msg.content.startsWith(prefijo) || msg.author.bot) return;
